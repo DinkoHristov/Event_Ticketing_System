@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    if (User.Identity?.Name == "admin")
+    {
+        <div class="text-center">
+            <h3>Greetings, Administrator - Admin!</h3>
+            <hr />
+            <h5>Enjoy your work.</h5>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h3>Welcome, @User.Identity?.Name!</h3>
+            <hr />
+            <h5>Eventures wishes you and exciting experience.</h5>
+        </div>
+    }
+}
+else
+{
+    <div class="text-left">
+        <h5>Eventures - The best ticket service in the world.</h5>
+        <hr />
+
+        <p><a asp-controller="Account" asp-action="Login">Login</a> to start "eventing".</p>
+        <p><a asp-controller="Account" asp-action="Register">Register</a> if you don't have an account.</p>
+    </div>
+}

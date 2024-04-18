@@ -1,0 +1,32 @@
+﻿@model List<AllEventsModel>
+
+@{
+	ViewData["Title"] = "All Events";
+    int counter = 1;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Place</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var myEvent in Model)
+        {
+            <tr>
+                <th scope="row">@counter</th>
+                <td>@myEvent.Name</td>
+                <td>@myEvent.Start</td>
+                <td>@myEvent.End</td>
+                <td>@myEvent.Place</td>
+            </tr>
+
+            counter++;
+        }
+    </tbody>
+</table>
